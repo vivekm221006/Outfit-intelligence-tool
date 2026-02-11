@@ -92,6 +92,18 @@ const App = {
     // Hide results and crop controls
     document.getElementById('results-section').classList.add('hidden');
     document.getElementById('crop-controls').classList.add('hidden');
+    
+    // Auto-initialize manual colors if manual mode is selected
+    if (mode === 'manual') {
+      setTimeout(() => {
+        ['top', 'bottom', 'shoes'].forEach(garment => {
+          const input = document.getElementById(`${garment}-color`);
+          if (input) {
+            this.handleManualColorChange(garment, input.value);
+          }
+        });
+      }, 100);
+    }
   },
 
   // Manual color change handler
