@@ -11,7 +11,7 @@ const ColorAnalysis = {
     let totalR = 0, totalG = 0, totalB = 0;
     let pixelCount = 0;
     
-    // Sample every 4th pixel for performance
+    // Sample every 4th pixel for performance (stride of 16 bytes = 4 pixels * 4 bytes/pixel)
     for (let i = 0; i < data.length; i += 16) {
       totalR += data[i];
       totalG += data[i + 1];

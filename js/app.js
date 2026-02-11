@@ -95,6 +95,7 @@ const App = {
     
     // Auto-initialize manual colors if manual mode is selected
     if (mode === 'manual') {
+      // Use setTimeout to ensure DOM updates are complete before triggering events
       setTimeout(() => {
         ['top', 'bottom', 'shoes'].forEach(garment => {
           const input = document.getElementById(`${garment}-color`);

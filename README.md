@@ -148,7 +148,7 @@ Categorizes outfit mood using:
 Outfit-intelligence-tool/
 ├── index.html              # Main HTML structure
 ├── css/
-│   └── style.css           # Custom CSS (supplements Tailwind)
+│   └── style.css           # Custom CSS with Tailwind-inspired utilities
 ├── js/
 │   ├── app.js              # Main application logic & UI flow
 │   ├── camera.js           # Camera access & video capture
@@ -162,7 +162,7 @@ Outfit-intelligence-tool/
 
 ### Technology Stack
 - **HTML5**: Semantic structure
-- **Tailwind CSS**: Utility-first styling
+- **Custom CSS**: Tailwind-inspired utility classes for styling
 - **Vanilla JavaScript**: No frameworks or libraries
 - **Canvas API**: Image processing and color extraction
 - **MediaDevices API**: Camera access

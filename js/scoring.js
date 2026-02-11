@@ -164,7 +164,7 @@ const Scoring = {
       const avgContrast = contrasts.reduce((a, b) => a + b, 0) / contrasts.length;
       if (avgContrast >= 30 && avgContrast <= 50) {
         contrastScore = 20; // Ideal contrast
-      } else if (avgContrast > 50 || avgContrast >= 20) {
+      } else if (avgContrast > 50 || (avgContrast >= 20 && avgContrast < 30)) {
         contrastScore = 15; // Acceptable contrast
       } else {
         contrastScore = 8; // Poor contrast
