@@ -3,17 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Outfit Intelligence Tool - Analyze your outfit with real color theory and get professional styling feedback">
-  <title>🧠 Outfit Intelligence Tool</title>
-  
-  <!-- Custom CSS (includes Tailwind-like utilities) -->
+
+  <meta property="og:title" content="Outfit Intelligence Tool">
+  <meta property="og:description" content="Advanced outfit color analysis using real color theory. Upload, camera capture or manual color input with smart scoring.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://outfit-intelligence-tool.netlify.app/">
+  <meta property="og:image" content="https://outfit-intelligence-tool.netlify.app/preview.png">
+
+  <!-- Twitter Preview -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Outfit Intelligence Tool">
+  <meta name="twitter:description" content="Professional outfit color analysis powered by real color theory.">
+  <meta name="twitter:image" content="https://outfit-intelligence-tool.netlify.app/preview.png">
+
+  <!-- Custom CSS -->
   <link rel="stylesheet" href="css/style.css">
-  
+
   <!-- Favicon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧠</text></svg>">
 </head>
+
 <body class="bg-slate-900 text-white">
-  
+
   <!-- Header -->
   <header class="bg-slate-800 shadow-lg">
     <div class="container mx-auto px-4 py-6">
@@ -37,32 +48,25 @@
         </h2>
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <!-- Manual Color Selection -->
+
           <button id="manual-mode-btn" class="mode-btn bg-slate-700 hover:bg-slate-600 rounded-lg p-6 text-left transition-all">
             <div class="text-4xl mb-3">🎨</div>
             <h3 class="text-xl font-bold mb-2">Manual Colors</h3>
-            <p class="text-gray-400 text-sm">
-              Pick colors directly with color pickers
-            </p>
+            <p class="text-gray-400 text-sm">Pick colors directly with color pickers</p>
           </button>
 
-          <!-- Camera Capture -->
           <button id="camera-mode-btn" class="mode-btn bg-slate-700 hover:bg-slate-600 rounded-lg p-6 text-left transition-all">
             <div class="text-4xl mb-3">📷</div>
             <h3 class="text-xl font-bold mb-2">Live Camera</h3>
-            <p class="text-gray-400 text-sm">
-              Capture outfit with your camera
-            </p>
+            <p class="text-gray-400 text-sm">Capture outfit with your camera</p>
           </button>
 
-          <!-- Image Upload -->
           <button id="upload-mode-btn" class="mode-btn bg-slate-700 hover:bg-slate-600 rounded-lg p-6 text-left transition-all">
             <div class="text-4xl mb-3">🖼</div>
             <h3 class="text-xl font-bold mb-2">Upload Image</h3>
-            <p class="text-gray-400 text-sm">
-              Upload an outfit photo from gallery
-            </p>
+            <p class="text-gray-400 text-sm">Upload an outfit photo from gallery</p>
           </button>
+
         </div>
       </div>
     </section>
@@ -75,23 +79,22 @@
         </h2>
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <!-- Top -->
+
           <div class="bg-slate-700 rounded-lg p-4">
             <label class="block text-lg font-semibold mb-3">👕 Top</label>
             <input type="color" id="top-color" value="#3b82f6" class="w-full h-16 rounded cursor-pointer">
           </div>
 
-          <!-- Bottom -->
           <div class="bg-slate-700 rounded-lg p-4">
             <label class="block text-lg font-semibold mb-3">👖 Bottom</label>
             <input type="color" id="bottom-color" value="#1e293b" class="w-full h-16 rounded cursor-pointer">
           </div>
 
-          <!-- Shoes -->
           <div class="bg-slate-700 rounded-lg p-4">
             <label class="block text-lg font-semibold mb-3">👟 Shoes</label>
             <input type="color" id="shoes-color" value="#ffffff" class="w-full h-16 rounded cursor-pointer">
           </div>
+
         </div>
       </div>
     </section>
@@ -99,12 +102,10 @@
     <!-- Camera Section -->
     <section id="camera-section" class="mb-8 hidden fade-in">
       <div class="bg-slate-800 rounded-lg shadow-xl p-6">
-        <h2 class="text-2xl font-bold mb-4 text-blue-400">
-          Camera Capture
-        </h2>
+        <h2 class="text-2xl font-bold mb-4 text-blue-400">Camera Capture</h2>
         
         <div class="space-y-4">
-          <!-- Camera controls -->
+
           <div class="flex flex-wrap gap-3">
             <button id="start-camera-btn" class="btn-primary bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg font-semibold transition-all">
               📷 Start Camera
@@ -117,15 +118,14 @@
             </button>
           </div>
 
-          <!-- Video preview -->
           <div class="flex justify-center">
             <video id="camera-preview" class="hidden max-w-full rounded-lg" autoplay playsinline></video>
           </div>
 
-          <!-- Capture canvas -->
           <div class="flex justify-center">
             <canvas id="capture-canvas" class="hidden max-w-full"></canvas>
           </div>
+
         </div>
       </div>
     </section>
@@ -133,11 +133,10 @@
     <!-- Upload Section -->
     <section id="upload-section" class="mb-8 hidden fade-in">
       <div class="bg-slate-800 rounded-lg shadow-xl p-6">
-        <h2 class="text-2xl font-bold mb-4 text-blue-400">
-          Upload Outfit Image
-        </h2>
+        <h2 class="text-2xl font-bold mb-4 text-blue-400">Upload Outfit Image</h2>
         
         <div class="space-y-4">
+
           <label class="block">
             <div class="border-2 border-dashed border-slate-600 rounded-lg p-8 text-center hover:border-blue-500 transition-all cursor-pointer">
               <div class="text-4xl mb-3">📁</div>
@@ -147,38 +146,30 @@
             </div>
           </label>
 
-          <!-- Upload canvas -->
           <div class="flex justify-center">
             <canvas id="upload-canvas" class="hidden max-w-full"></canvas>
           </div>
+
         </div>
       </div>
     </section>
 
-    <!-- Crop Controls (shown after image capture/upload) -->
+    <!-- Crop Controls -->
     <section id="crop-controls" class="mb-8 hidden fade-in">
       <div class="bg-slate-800 rounded-lg shadow-xl p-6">
         <h2 class="text-2xl font-bold mb-4 text-blue-400">
           Manual Crop Override (Optional)
         </h2>
-        
+
         <p class="text-gray-400 mb-4">
           Colors have been auto-detected from three zones. You can manually select specific regions if needed.
         </p>
 
         <div class="flex flex-wrap gap-3 mb-4">
-          <button id="crop-top-btn" class="bg-red-600 hover:bg-red-700 px-4 py-2 rounded-lg font-semibold transition-all">
-            Select Top Region
-          </button>
-          <button id="crop-bottom-btn" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg font-semibold transition-all">
-            Select Bottom Region
-          </button>
-          <button id="crop-shoes-btn" class="bg-green-600 hover:bg-green-700 px-4 py-2 rounded-lg font-semibold transition-all">
-            Select Shoes Region
-          </button>
-          <button id="cancel-crop-btn" class="bg-gray-600 hover:bg-gray-700 px-4 py-2 rounded-lg font-semibold transition-all">
-            Cancel Selection
-          </button>
+          <button id="crop-top-btn" class="bg-red-600 hover:bg-red-700 px-4 py-2 rounded-lg font-semibold transition-all">Select Top Region</button>
+          <button id="crop-bottom-btn" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg font-semibold transition-all">Select Bottom Region</button>
+          <button id="crop-shoes-btn" class="bg-green-600 hover:bg-green-700 px-4 py-2 rounded-lg font-semibold transition-all">Select Shoes Region</button>
+          <button id="cancel-crop-btn" class="bg-gray-600 hover:bg-gray-700 px-4 py-2 rounded-lg font-semibold transition-all">Cancel Selection</button>
         </div>
 
         <div id="crop-instructions" class="hidden bg-yellow-900 border border-yellow-600 rounded-lg p-3 text-yellow-200">
@@ -195,38 +186,31 @@
         </h2>
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <!-- Top Preview -->
+
           <div class="bg-slate-700 rounded-lg p-4">
             <h3 class="text-lg font-semibold mb-3">👕 Top</h3>
             <div class="flex items-center gap-4">
               <div id="top-preview" class="color-preview w-24 h-24 rounded-full opacity-50"></div>
-              <div>
-                <p id="top-label" class="text-gray-400">Not detected</p>
-              </div>
+              <div><p id="top-label" class="text-gray-400">Not detected</p></div>
             </div>
           </div>
 
-          <!-- Bottom Preview -->
           <div class="bg-slate-700 rounded-lg p-4">
             <h3 class="text-lg font-semibold mb-3">👖 Bottom</h3>
             <div class="flex items-center gap-4">
               <div id="bottom-preview" class="color-preview w-24 h-24 rounded-full opacity-50"></div>
-              <div>
-                <p id="bottom-label" class="text-gray-400">Not detected</p>
-              </div>
+              <div><p id="bottom-label" class="text-gray-400">Not detected</p></div>
             </div>
           </div>
 
-          <!-- Shoes Preview -->
           <div class="bg-slate-700 rounded-lg p-4">
             <h3 class="text-lg font-semibold mb-3">👟 Shoes</h3>
             <div class="flex items-center gap-4">
               <div id="shoes-preview" class="color-preview w-24 h-24 rounded-full opacity-50"></div>
-              <div>
-                <p id="shoes-label" class="text-gray-400">Not detected</p>
-              </div>
+              <div><p id="shoes-label" class="text-gray-400">Not detected</p></div>
             </div>
           </div>
+
         </div>
       </div>
     </section>
@@ -248,7 +232,6 @@
           📊 Analysis Results
         </h2>
 
-        <!-- Overall Score -->
         <div class="bg-gradient-to-br from-slate-700 to-slate-800 rounded-lg p-8 mb-6 text-center score-reveal">
           <div class="text-6xl font-bold mb-2">
             <span id="overall-score">0</span><span class="text-gray-400">/100</span>
@@ -257,15 +240,11 @@
           <div id="grade-description" class="text-xl text-gray-400">Excellent</div>
         </div>
 
-        <!-- Score Breakdown -->
         <div class="mb-6">
           <h3 class="text-xl font-bold mb-3 text-purple-400">Score Breakdown</h3>
-          <div id="score-breakdown" class="space-y-2">
-            <!-- Populated by JavaScript -->
-          </div>
+          <div id="score-breakdown" class="space-y-2"></div>
         </div>
 
-        <!-- Color Harmony -->
         <div class="bg-slate-700 rounded-lg p-6 mb-6">
           <h3 class="text-xl font-bold mb-3 text-purple-400">🎨 Color Harmony</h3>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -283,7 +262,6 @@
           </div>
         </div>
 
-        <!-- Confidence Score -->
         <div class="bg-slate-700 rounded-lg p-6 mb-6">
           <h3 class="text-xl font-bold mb-3 text-purple-400">💪 Confidence Projection</h3>
           <div class="mb-3">
@@ -300,7 +278,6 @@
           </p>
         </div>
 
-        <!-- Mood Detection -->
         <div class="bg-slate-700 rounded-lg p-6 mb-6">
           <h3 class="text-xl font-bold mb-3 text-purple-400">😊 Mood Perception</h3>
           <div class="mb-3">
@@ -309,16 +286,14 @@
           </div>
         </div>
 
-        <!-- Comparison Section -->
         <div id="comparison-section" class="bg-slate-700 rounded-lg p-6 hidden">
           <h3 class="text-xl font-bold mb-3 text-purple-400">📈 Comparison with Previous Outfit</h3>
           <div class="mb-3">
             <p id="comparison-message" class="text-lg font-semibold mb-3">-</p>
-            <ul id="comparison-details" class="list-disc list-inside space-y-1">
-              <!-- Populated by JavaScript -->
-            </ul>
+            <ul id="comparison-details" class="list-disc list-inside space-y-1"></ul>
           </div>
         </div>
+
       </div>
     </section>
 
