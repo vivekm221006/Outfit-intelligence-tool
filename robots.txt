@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://outfit-intelligence-tool.netlify.app/sitemap.xml
